@@ -1,0 +1,29 @@
+/* miniprogram/pages/me/me.wxss */
+
+button {
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.button-sp-area {
+  margin: 0 auto;
+  width: 60%;
+}
+
+.mini-btn {
+  margin-right: 10rpx;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  width: 100%;
+}
+
+.user-info image {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+}

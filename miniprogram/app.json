@@ -1,0 +1,28 @@
+{
+  "pages": [
+      "pages/me/me",
+    "pages/books/books"
+  
+  ],
+  "tabBar":{
+    "list": [
+      {
+        "pagePath": "pages/books/books",
+        "text": "图书"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "学习吧",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}
