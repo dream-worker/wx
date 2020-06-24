@@ -35,7 +35,12 @@ Page({
   scanCode() {
     wx.scanCode({
       success(res) {
-        console.log(res)
+        let isbn = res.result
+        wx.cloud.callFunction({
+          name:'douban',
+          data:{isbn}
+        })
+        console.log(11,res)
       }
     })}
   
