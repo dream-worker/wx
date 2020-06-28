@@ -33,21 +33,41 @@ async function getDouban(isbn){
   // 根据解密后数据，拿到详情页面url
   const detailData = await axios.get(detailInfo.url)
   // TODO: detailData.data  和 detailData 有啥区别
-  console.log(11, detailData.data )
+  // console.log(11, detailData.data )
   // 拿到详细信息，组装
   const $ = cheerio.load(detailData.data)
-console.log(22,$)
+  let tags = []
+// console.log(22,$('#link-report .intro').text())
+ $('#db-tags-section .indent span a').each((i,v)=>{
+   tags.push({
+     title:$(v).text()
+   })
+ })
+ let comments = []
+ $('.review-list').children("div").each((i,v)=>{
+  comments.push({
+    avator:$(v).find('.avator img').attr('src'),
+    name:$(v).find('.name').text(),
+    star:$(v).find('.main-title-rating').attr('class').split(' ')[0].substring(7),
+    bd:$(v).find('.main-bd h2 a').text(),
+    content:$(v).find('.short-content').text(),
+    time:$(v).find('.main-meta').text()  
+  })
+ })
+
   const res = {
-    // creat_time:new Data().getTime(),
-    // image:detailInfo.cover_url,
-    // rate:detailInfo.rating.value,
-    // url:detailInfo.url,
-    // title:detailInfo.title,
-    // author: detailInfo.abstract,
-    // // 爬取书籍详情介绍
-    // summary: $('#link-report .intro').text()
+    creat_time:new Date().getTime(),
+    image:detailInfo.cover_url,
+    rate:detailInfo.rating.value,
+    url:detailInfo.url,
+    title:detailInfo.title,
+    author: detailInfo.abstract,
+    // 爬取书籍详情介绍
+    summary: $('#link-report .intro').text(),
+    tags,
+    comments
   }
-  console.log(res)
+  console.log(11,res)
   return res
 
 }
