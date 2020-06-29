@@ -1,2 +1,8 @@
 <!--miniprogram/pages/books/books.wxml-->
-<text>miniprogram/pages/books/books.wxml</text>
+<view>
+	<view wx:for="{{books}}" class='book'>
+		<image src='{{item.image}}'></image>
+		<text>{{item.author}}</text>
+	</view>
+
+</view>
